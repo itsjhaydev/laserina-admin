@@ -102,7 +102,7 @@ const AddReservation = () => {
         try {
             await useAuthStore.getState().createReservation(values);  // Make sure this creates the reservation correctly in your backend
             toast.success('Reservation created!');
-            navigate("/dashboard/pending-reservation");  // Redirect to PendingReservations
+            navigate("/dashboard/reservation/pending-reservation");  // Redirect to PendingReservations
         } catch (error) {
             toast.error(error.message || 'Reservation failed');
         } finally {
