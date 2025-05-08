@@ -11,7 +11,7 @@ const AdminLogin = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const { login, isLoading } = useAuthStore();
+  const { login, isLoading, error } = useAuthStore();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const AdminLogin = () => {
       await login(email, password);
       toast.success("Login Successful");
       navigate('/dashboard');
-    } catch (error) {
+    } catch (err) {
       toast.error(error.message || "Login failed");
     }
   };
