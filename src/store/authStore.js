@@ -45,7 +45,8 @@ export const useAuthStore = create((set) => ({
 						'Content-Type': 'application/json',
 						Authorization: `Bearer ${token}`,
 					},
-				}
+				},
+				{ withCredentials: true }
 			);
 
 			// ✅ Refresh accounts from the server
