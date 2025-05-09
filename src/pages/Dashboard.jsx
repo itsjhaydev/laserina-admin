@@ -10,8 +10,8 @@ import ChartBox from '../components/ChartBox';
 
 const Dashboard = () => {
   const [filter, setFilter] = useState({
-    fromYear: 2024,
-    toYear: 2025,
+    fromYear: 2025,
+    toYear: 2026,
     fromMonth: '01',
     toMonth: '12',
   });
