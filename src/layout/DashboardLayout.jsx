@@ -109,16 +109,6 @@ const DashboardLayout = () => {
             {!collapsed && showReservation && (
               <div className="ml-8 mt-2 space-y-2">
                 <NavLink
-                  to="/dashboard/reservation/add-reservation"
-                  className={({ isActive }) =>
-                    `flex items-center space-x-2 px-2 py-1 rounded-md text-sm ${isActive ? 'bg-blue-300 font-semibold' : 'hover:bg-blue-800 hover:text-white'}`
-                  }
-                >
-                  <FaPlusCircle size={16} />
-                  <span>Add</span>
-                </NavLink>
-
-                <NavLink
                   to="/dashboard/reservation/pending-reservation"
                   className={({ isActive }) =>
                     `flex items-center space-x-2 px-2 py-1 rounded-md text-sm ${isActive ? 'bg-blue-300 font-semibold' : 'hover:bg-blue-800 hover:text-white'}`

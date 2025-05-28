@@ -21,6 +21,8 @@ const PendingReservation = () => {
     const [showConfirmModal, setShowConfirmModal] = useState(false); // State to track confirm modal visibility
     const [reservationToConfirm, setReservationToConfirm] = useState(null); // State to store reservation ID for confirmation
     const [reservationToCancel, setReservationToCancel] = useState(null); // State for canceling reservation
+    const [cancelReason, setCancelReason] = useState('');
+
 
     const itemsPerPage = 5;
     const totalPages = Math.ceil(filteredReservations?.length / itemsPerPage) || 1;
@@ -81,7 +83,7 @@ const PendingReservation = () => {
         if (!reservationToCancel) return;
 
         try {
-            await cancelReservation(reservationToCancel);
+            await cancelReservation(reservationToCancel, cancelReason);
             closeCancelModal();
             toast.success(`Reservation canceled successfully!`);
         } catch (error) {
@@ -246,7 +248,15 @@ const PendingReservation = () => {
                 message="Are you sure you want to cancel this reservation?"
                 onConfirm={handleCancelReservation}
                 onCancel={closeCancelModal}
-            />
+            >
+                <textarea
+                    placeholder="Reason for cancellation (optional)"
+                    value={cancelReason}
+                    onChange={(e) => setCancelReason(e.target.value)}
+                    className="w-full mt-4 p-2 border rounded"
+                />
+            </PendingActionModal>
+
 
 
             {/* Reservation Details Modal */}

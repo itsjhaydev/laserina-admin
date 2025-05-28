@@ -229,13 +229,13 @@ export const useAuthStore = create((set) => ({
 		}
 	},
 
-	cancelReservation: async (reservationId) => {
+	cancelReservation: async (reservationId, reason) => {
 		set({ isLoading: true, error: null });
 
 		try {
 			const response = await axios.post(
 				`${AUTH_API}/cancel-reservation/${reservationId}`,
-				{},
+				{ reason },
 				{ withCredentials: true }
 			);
 
